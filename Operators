@@ -1,0 +1,42 @@
+// See https://aka.ms/new-console-template for more information
+Console.WriteLine("Hello, World!");
+
+//Atama
+
+int x = 3;
+int y = 3;
+ y = y+2;
+
+ System.Console.WriteLine(y);
+ y += 2;
+ System.Console.WriteLine(y);
+
+ //Logical
+
+ bool isSuccess = true;
+ bool isCompleted = false;
+
+ if(isSuccess && isCompleted)
+ {
+     System.Console.WriteLine("Perfect");
+ }
+
+ if(isSuccess || isCompleted)
+ {
+     System.Console.WriteLine("Great");
+ }
+
+ //Relational
+
+int a = 3;
+int b = 4;
+bool sonuc = a<b;
+System.Console.WriteLine(sonuc);
+
+//mod
+
+int sonuc2 = 20%3;
+System.Console.WriteLine(sonuc2);
+
+
+
