@@ -1,0 +1,45 @@
+
+DateTime dt = DateTime.Now;
+
+Console.WriteLine(dt);
+
+//String
+
+var str1 = string.Empty;
+str1 = "Berkay";
+var name = "Berkay";
+var lastName = "Golcu";
+var fullName = name + " " + lastName;
+
+//Integer
+
+var num1 = 5;
+var num2 = 3;
+var num3 = num1 + num2;
+
+//Bool
+
+var bool1 = 10>2;
+
+//Casting
+
+var str20 = "20";
+var int20 = 20;
+
+var newValue = str20 + int20.ToString();
+System.Console.WriteLine(newValue);
+
+var int21 = int20 + Convert.ToInt32(str20);
+System.Console.WriteLine(int21);
+
+var int22 = int20 + int.Parse(str20);
+System.Console.WriteLine(int22);
+
+//DateTime
+
+var dateTime = DateTime.Now.ToString("dd.MM.yyyy");
+System.Console.WriteLine(dateTime);
+
+var hour = DateTime.Now.ToString("HH:mm");
+System.Console.WriteLine(hour);
+
