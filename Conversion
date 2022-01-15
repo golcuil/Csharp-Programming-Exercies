@@ -1,0 +1,60 @@
+// See https://aka.ms/new-console-template for more information
+
+//Implicit Conversion
+
+byte a = 5;
+sbyte b = 30;
+short c = 10;
+
+int d = a+b+c;
+System.Console.WriteLine("d: "+ d);
+
+long h = d;
+System.Console.WriteLine("h: "+ h);
+
+string x = "berkay";
+char y = 'g';
+object z = x+y;
+
+System.Console.WriteLine("z: " + z);
+
+//Explicit Conversion
+
+int j = 4;
+byte k = (byte)j;
+
+//ToString
+
+int xx = 6;
+string yy = xx.ToString();
+System.Console.WriteLine(yy);
+
+//Convert
+
+string s1 = "10", s2 = "20";
+int sayi1,sayi2;
+int toplam;
+
+sayi1 = Convert.ToInt32(s1);
+sayi2 = Convert.ToInt32(s2);
+toplam = sayi1+sayi2;
+System.Console.WriteLine(toplam);
+
+//parse
+ParseMethod();
+
+
+static void ParseMethod()
+
+{
+    string metin1 = "10";
+    string metin2 = "10.25";
+    int rakam1;
+    double double1;
+
+    rakam1 = Int32.Parse(metin1);
+    double1 = double.Parse(metin2);
+
+    System.Console.WriteLine(metin1);
+    System.Console.WriteLine(metin2);
+}
