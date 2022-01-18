@@ -1,0 +1,43 @@
+System.Console.Write("Please enter a number: ");
+int sayac = int.Parse(Console.ReadLine());
+
+for(int i = 0; i<= sayac ; i++)
+{
+    if(i%2 == 1)
+    {
+        System.Console.WriteLine(i);
+    }
+}
+
+int sumOdd = 0;
+int sumEven = 0;
+
+for(int i = 0; i <= 1000; i++)
+{
+    if(i%2 == 1)
+    {
+        sumOdd += i;
+    }
+    else
+    {
+        sumEven += i;
+    }
+}
+
+System.Console.WriteLine(sumEven);
+System.Console.WriteLine(sumOdd);
+
+for(int i = 0; i<10; i++)
+{
+    if(i == 4)
+    {
+        break;
+        System.Console.WriteLine(i);
+
+    }
+
+    if(i == 5)
+    {
+        continue;
+    }
+}
