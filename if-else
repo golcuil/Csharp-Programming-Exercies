@@ -1,0 +1,22 @@
+//1st Way
+int a = 4;
+if(a%2 == 0)
+{
+    if((a>2 && a<5) || a>20)
+    {
+        System.Console.WriteLine("Not Weird");
+    }
+    else
+    {
+        System.Console.WriteLine("Weird");
+    }
+
+    }
+    else
+    {
+        System.Console.WriteLine("Weird");
+    }
+
+// 2nd Way
+string sonuc = a%2 == 0 ? ((a>2 && a<5) || a>20) ? "Not Weird" : "Weird" : "Weird";
+System.Console.WriteLine(sonuc); 
