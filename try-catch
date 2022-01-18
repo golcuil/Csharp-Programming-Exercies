@@ -1,0 +1,43 @@
+// See https://aka.ms/new-console-template for more information
+
+try
+{
+     System.Console.WriteLine("Enter a number: ");
+     int number = Convert.ToInt32(Console.ReadLine());
+     System.Console.WriteLine("Entered number is: " + number);
+}
+catch(Exception ex)
+{
+    System.Console.WriteLine("Error: " + ex.Message.ToString());
+}
+finally
+{
+    System.Console.WriteLine("İşlem Tamamlandı.");
+}
+
+
+try
+{
+     //int a = int.Parse(null);
+     //int a = int.Parse("test");
+     int a = int.Parse("-94234565421");
+}
+catch(ArgumentNullException ex)
+{
+    System.Console.WriteLine("You cannot enter empty value");
+    System.Console.WriteLine(ex);
+}
+catch(FormatException ex)
+{
+    System.Console.WriteLine("Veri tipi uygun değil");
+    System.Console.WriteLine(ex);
+}
+catch(OverflowException ex)
+{
+    System.Console.WriteLine("Input is out of range of integer values");
+    System.Console.WriteLine(ex);
+}
+finally
+{
+    System.Console.WriteLine("Process is completed.");
+}
