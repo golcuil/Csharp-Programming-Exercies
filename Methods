@@ -1,0 +1,35 @@
+
+int a = 5;
+int b = 8;
+
+var ornek = new Metotlar();
+var sonuc = Topla(a,b);
+var sonuc2 = ornek.ArttirVeTopla(ref a,ref b);
+
+ornek.EkranaYazdir(Convert.ToString(sonuc));
+ornek.EkranaYazdir(Convert.ToString(sonuc2));
+ornek.EkranaYazdir(Convert.ToString(a+b));
+
+static int Topla(int a, int b){
+
+    return a+b;
+
+}
+
+class Metotlar{
+
+    public void EkranaYazdir(string data){
+
+        System.Console.WriteLine(data);
+
+    }
+
+    public int ArttirVeTopla(ref int a, ref int b){
+
+        a+= 1;
+        b+= 1;
+
+        return a+b;
+
+    }
+}
