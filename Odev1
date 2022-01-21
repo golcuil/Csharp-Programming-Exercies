@@ -41,4 +41,56 @@ static class Methods{
 /* ******************************** */
 
 
+/* Odev1.2
+*******************
+Bir konsol uygulamasında kullanıcıdan pozitif iki sayı girmesini isteyin (n, m). 
+Sonrasında kullanıcıdan n adet pozitif sayı girmesini isteyin. 
+Kullanıcının girmiş olduğu sayılardan m'e eşit yada tam bölünenleri console'a yazdırın.
+******************* */
 
+System.Console.Write("Please enter a positive number: ");
+int n = int.Parse(System.Console.ReadLine());
+System.Console.WriteLine();
+System.Console.Write("Enter second positive number: ");
+int m = int.Parse(System.Console.ReadLine());
+
+
+if(n<0){
+    System.Console.WriteLine("Oups, You should enter 'Positive Integer' Value: ");
+    n = int.Parse(System.Console.ReadLine());
+}
+
+if(m<0){
+    System.Console.WriteLine("Oups, You should enter 'Positive Integer' Value: ");
+    m = int.Parse(System.Console.ReadLine());
+}
+
+int[] userArray = new int[n];
+
+for (int i = 0; i < userArray.Length; i++)
+{   
+    System.Console.WriteLine("Please enter {0}. value: ",i+1);
+    userArray[i] = int.Parse(System.Console.ReadLine());
+    
+}
+System.Console.WriteLine();
+
+Methods.TamBolenler(userArray,m);
+
+static class Methods{
+
+    public static void TamBolenler(int[] param, int bolen){
+
+        for (int i = 0; i < param.Length; i++)
+        {
+            if((param[i] % bolen == 0) || (param[i] == bolen)){
+                System.Console.WriteLine(param[i]);
+            }
+        }
+
+    }
+}
+
+
+
+/* ******************************** */
