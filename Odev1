@@ -1,0 +1,44 @@
+/* Odev1.1
+*******************
+Bir konsol uygulamasında kullanıcıdan pozitif bir sayı girmesini isteyin(n). 
+Sonrasında kullanıcıdan n adet pozitif sayı girmesini isteyin. 
+Kullanıcının girmiş olduğu sayılardan çift olanlar console'a yazdırın.
+******************* */
+
+System.Console.Write("Please enter a positive number: ");
+int n = int.Parse(System.Console.ReadLine());
+
+if(n<0){
+    System.Console.WriteLine("Oups, You should enter 'Positive Integer' Value: ");
+    n = int.Parse(System.Console.ReadLine());
+}
+
+int[] userArray = new int[n];
+
+for (int i = 0; i < userArray.Length; i++)
+{   
+    System.Console.WriteLine("Please enter {0}. value: ",i+1);
+    userArray[i] = int.Parse(System.Console.ReadLine());
+    
+}
+
+Methods.EvenNumbers(userArray);
+
+static class Methods{
+
+    public static void EvenNumbers(int[] param){
+
+        for (int i = 0; i < param.Length; i++)
+        {
+            if(param[i] % 2 == 0){
+                System.Console.WriteLine(param[i]);
+            }
+        }
+
+    }
+}
+
+/* ******************************** */
+
+
+
