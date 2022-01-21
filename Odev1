@@ -94,3 +94,42 @@ static class Methods{
 
 
 /* ******************************** */
+
+/* Odev1.3
+*******************
+Bir konsol uygulamasında kullanıcıdan pozitif bir sayı girmesini isteyin (n). 
+Sonrasında kullanıcıdan n adet kelime girmesi isteyin. 
+Kullanıcının girişini yaptığı kelimeleri sondan başa doğru console'a yazdırın.
+******************* */
+
+System.Console.Write("Lütfen istediğiniz kelime adetini yazınız: ");
+int n = int.Parse(System.Console.ReadLine());
+System.Console.WriteLine();
+string[] kelimeler = new string[n];
+
+for (int i = 0; i < kelimeler.Length; i++)
+{
+    System.Console.WriteLine("{0}. kelimenizi giriniz: ",i+1);
+    kelimeler[i] = System.Console.ReadLine().ToString();
+    if(kelimeler[i].Contains(" ")){
+        System.Console.WriteLine("Sadece bir kelime giriniz ve boşluk bırakmayınız.");
+        kelimeler[i] = System.Console.ReadLine().ToString();
+    }
+}
+System.Console.WriteLine();
+Methods.TersYazdir(kelimeler);
+
+static class Methods{
+
+    public static void TersYazdir(string[] param){
+
+        for(int i = param.Length-1; i>=0; i--){
+            System.Console.WriteLine(param[i]);
+        }
+    }
+
+}
+
+/* ******************************** */
+
+
