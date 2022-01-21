@@ -1,0 +1,86 @@
+
+Islemler instance = new();
+System.Console.WriteLine(instance.Expo(3,4));
+
+
+//Extension Methods
+
+string ifade = "Ali ata bak";
+bool sonuc = Extention.CheckSpaces(ifade);
+System.Console.WriteLine(sonuc);
+
+if(sonuc){
+    System.Console.WriteLine(ifade.RemoveWhiteSpaces());
+    System.Console.WriteLine(ifade.MakeUpperCase());
+}
+
+int[] dizi = {9,2,5,8,7,6,1};
+dizi.SortArray();
+dizi.EkranaYazdir();
+
+int isEven = 5;
+System.Console.WriteLine(isEven.IsEvenNumber());
+
+string firstChar = "ahmet";
+System.Console.WriteLine(firstChar.GetFirstCharacter());
+
+
+public class Islemler{
+
+    public int Expo(int sayi, int üs){
+
+        if(üs<2)
+            return sayi;
+        return Expo(sayi,üs-1)*sayi;
+
+    }
+
+
+}
+
+public static class Extention{
+
+    public static bool CheckSpaces(this string param){
+
+        return param.Contains(" ");
+
+
+    }
+    
+    public static string RemoveWhiteSpaces(this string param){
+
+        string[] dizi = param.Split(" ");
+        return string.Join("",dizi);
+
+    }
+
+    public static string MakeUpperCase(this string param){
+
+        return param.ToUpper();
+    }
+
+    public static int[] SortArray(this int[] param){
+
+        System.Array.Sort(param);
+        return param;
+
+
+    }
+    public static void EkranaYazdir(this int[] param){
+
+        foreach (var item in param)
+        {
+            System.Console.WriteLine(item);
+        }
+    }
+
+    public static bool IsEvenNumber(this int param){
+
+        return param % 2 == 0;
+    }
+
+    public static string GetFirstCharacter(this string param){
+        return param.Substring(0,1);
+    }
+
+}
