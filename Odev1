@@ -133,3 +133,29 @@ static class Methods{
 /* ******************************** */
 
 
+/* Odev1.4
+*******************
+Bir konsol uygulamasında kullanıcıdan bir cümle yazması isteyin. 
+Cümledeki toplam kelime ve harf sayısını console'a yazdırın.
+******************* */
+
+System.Console.WriteLine("Lütfen cümlenizi giriniz: ");
+string cumle = System.Console.ReadLine().ToString();
+
+Methods.KelimeHarf(cumle);
+
+
+static class Methods{
+
+    public static void KelimeHarf(string param){
+        string[] kelimeArray = param.Split(" ");
+        string fullSentence = string.Join("",kelimeArray);
+
+        System.Console.WriteLine("Toplam kelime sayısı: " + kelimeArray.Length);
+        System.Console.WriteLine("Toplam harf sayısı: " + fullSentence.Length);
+        
+    }
+
+}
+
+/* ******************************** */
