@@ -1,0 +1,52 @@
+
+string degisken = "Dersimiz CSharp, Hoşgeldiniz!";
+string degisken2 = "Dersimiz CSharp";
+
+//Length 
+
+System.Console.WriteLine(degisken.Length);
+
+//ToUpper-ToLower
+
+System.Console.WriteLine(degisken.ToLower());
+System.Console.WriteLine(degisken.ToUpper());
+
+//Concat
+System.Console.WriteLine(string.Concat(degisken,"Merhaba!"));
+
+//Compare-CompareTo
+System.Console.WriteLine(degisken.CompareTo(degisken2)); // return 0,1,-1
+System.Console.WriteLine(string.Compare(degisken,degisken2,true)); //True dersek büyük küçük hafr duyarı kalkar.
+
+//Contains
+System.Console.WriteLine(degisken.Contains(degisken2));
+System.Console.WriteLine(degisken.EndsWith("Hoşgeldiniz!"));
+System.Console.WriteLine(degisken.StartsWith("Merhaba!"));
+
+//IndexOf
+System.Console.WriteLine(degisken.IndexOf("CS")); // return -1 bulunmazsa
+System.Console.WriteLine(degisken.LastIndexOf("i"));
+
+//Insert
+System.Console.WriteLine(degisken.Insert(0,"Merhaba! ")); // 0. indexten başlayarak ekleme yapar.
+
+//PadLeft,PadRight
+System.Console.WriteLine(degisken + degisken2.PadLeft(30)); // Değişken 2'nin sonuna 30'a tamamlayacak kadar boşluk ekler.
+
+//Remove
+System.Console.WriteLine(degisken.Remove(10)); //10.indexten başlar devamını siler.
+System.Console.WriteLine(degisken.Remove(5,3)); //5.indexten başla 3 karakter sil.
+
+//Replace
+System.Console.WriteLine(degisken.Replace("CSharp","C#"));
+
+//Split
+System.Console.WriteLine(degisken.Split(" ")[1]); //Splitten sonraki 1.indexi getir
+
+//Substring
+System.Console.WriteLine(degisken.Substring(4)); //4.indexten başlayarak sonuna kadar getirir.
+System.Console.WriteLine(degisken.Substring(4,6)); //4.indexten başla 6 karakter getir.
+
+
+
+
