@@ -1,0 +1,139 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+/* Koleksiyonlar-Soru-1
+ Klavyeden girilen 20 adet pozitif sayının asal ve asal olmayan olarak 2 ayrı listeye atın. (ArrayList sınıfını kullanara yazınız.)
+
+Negatif ve numeric olmayan girişleri engelleyin.
+Her bir dizinin elemanlarını büyükten küçüğe olacak şekilde ekrana yazdırın.
+Her iki dizinin eleman sayısını ve ortalamasını ekrana yazdırın.
+*************************************************************************
+ */
+
+ ArrayList allNumbers = new ArrayList(); 
+ Console.Write("Please enter 20 values: ");
+
+//User inputs
+for (int i = 0; i < 20; i++)
+{   
+    Console.Write("{0}.sayi: ",i+1);
+    string n = Console.ReadLine();
+    if((!int.TryParse(n, out int value)) || int.Parse(n)<0){
+        System.Console.WriteLine("Please enter numeric and positive values to run the code!");
+        i--;
+    }
+    else{
+        
+        allNumbers.Add(value);
+    }
+}
+
+// Define Lists
+ArrayList primeNumber = new ArrayList();
+ArrayList nonPrimeNumber = new ArrayList();
+
+
+int counterPrime = 0;
+
+// Check if prime number or not and assing to list.
+foreach (int item in allNumbers)
+{
+    for (int i = 2; i < item; i++)
+    {
+        if(item % i == 0){
+            counterPrime++;
+        }     
+    }
+
+    if(counterPrime != 0){
+        nonPrimeNumber.Add(item);
+        counterPrime = 0;
+    }
+    else if(item == 1){
+        nonPrimeNumber.Add(item);
+    }
+    else{
+        primeNumber.Add(item);
+    }
+
+}
+
+//List sorting
+primeNumber.Sort();
+nonPrimeNumber.Sort();
+int sumPrime = 0;
+int sumNonPrime = 0;
+
+System.Console.WriteLine("PRIME NUMBERS ARE: ");
+foreach (int item in primeNumber) {
+    System.Console.WriteLine(item);
+    sumPrime += item;
+}
+System.Console.WriteLine("NON-PRIME NUMBERS ARE: ");
+foreach (int item in nonPrimeNumber)
+{
+
+    System.Console.WriteLine(item);
+    sumNonPrime += item;
+}
+
+ double averagePrime = (double)sumPrime/primeNumber.Count;
+ double averageNonPrime = (double)sumNonPrime/nonPrimeNumber.Count;
+
+ System.Console.WriteLine("Avg of prime numbers: {0}\nAvg of non-prime numbers: {1}",averagePrime,averageNonPrime);
+
+
+/************************************************************************
+
+Soru - 2: Klavyeden girilen 20 adet sayının en büyük 3 tanesi ve en küçük 3 tanesi bulan, 
+her iki grubun kendi içerisinde ortalamalarını alan ve bu ortalamaları ve ortalama toplamlarını 
+console'a yazdıran programı yazınız. (Array sınıfını kullanarak yazınız.)
+
+*************************************************************************
+ */
+
+
+ ArrayList numbers = new ArrayList(); 
+ Console.Write("Please enter 20 values: ");
+
+//User inputs
+for (int i = 0; i < 20; i++)
+{   
+    Console.Write("{0}.sayi: ",i+1);
+    string n = Console.ReadLine();
+    if((!int.TryParse(n, out int value))){
+        System.Console.WriteLine("Please enter numeric and positive values to run the code!");
+        i--;
+    }
+    else{
+        
+        numbers.Add(value);
+    }
+}
+
+numbers.Sort();
+
+ArrayList leastThird = new ArrayList();
+ArrayList mostThird = new ArrayList();
+int sumLeast = 0;
+int sumMost = 0;
+for (int i = 0; i < 3; i++)
+{
+    leastThird.Add(numbers[i]);
+    sumLeast += (int)numbers[i];
+}
+
+for (int i = 19; i > numbers.Count-3; i--)
+{
+    mostThird.Add(numbers[i]);
+    sumMost += (int)numbers[i];
+}
+
+int avrLeast = sumLeast/leastThird.Count;
+int avrMost = sumMost / mostThird.Count;
+
+System.Console.WriteLine("Most 3 average: {0}\nLeast 3 average: {1}\nSum of averages: {2}",avrMost,avrLeast,avrLeast+avrMost);
+
+
+
