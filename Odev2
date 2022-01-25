@@ -137,3 +137,37 @@ System.Console.WriteLine("Most 3 average: {0}\nLeast 3 average: {1}\nSum of aver
 
 
 
+
+/************************************************************************
+
+Soru - 3: Klavyeden girilen cümle içerisindeki sesli 
+harfleri bir dizi içerisinde saklayan ve dizinin elemanlarını sıralayan programı yazınız.
+
+*************************************************************************
+ */
+
+List<string> vowels = new List<string>(){"a","e","i","o","u"};
+
+System.Console.Write("Please enter a sentence: ");
+string sentence = Console.ReadLine();
+
+string[] splitSentence = sentence.Split(' ');
+
+string fullSentence = string.Join("",splitSentence);
+
+List<string> contains = new List<string>();
+
+for(int i = 0; i<fullSentence.Length-1; i++){
+
+    if(vowels.Contains(fullSentence.Substring(i,1))){
+
+        contains.Add(fullSentence.Substring(i,1));
+
+    }
+}
+
+foreach (var item in contains)
+{
+    System.Console.WriteLine(item);
+}
+
