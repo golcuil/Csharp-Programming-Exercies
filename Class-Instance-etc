@@ -1,0 +1,39 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+
+var calisan1 = new Calisan();
+var calisan2 = new Calisan();
+
+calisan1.No = 1234;
+calisan1.Ad = "Metin";
+calisan1.Soyad = "Işık";
+calisan1.Departman="Ağla gözüm";
+
+calisan2.No = 5678;
+calisan2.Ad = "Azer";
+calisan2.Soyad = "Bülbül";
+calisan2.Departman = "Karakol";
+
+calisan1.CalisanBilgileri();
+calisan2.CalisanBilgileri();
+
+class Calisan{
+
+    public string Ad;
+    public string Soyad;
+    public int No;
+    public string Departman;
+
+    public void CalisanBilgileri(){
+
+        System.Console.WriteLine("Çalışan adı:{0} ",Ad);
+        System.Console.WriteLine("Soyadı: {0}",Soyad);
+        System.Console.WriteLine("No: {0}",No);
+        System.Console.WriteLine("Departman: {0}",Departman);
+
+    }
+
+
+}
