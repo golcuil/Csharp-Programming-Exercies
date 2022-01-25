@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Collections;
+
+ArrayList list = new ArrayList();
+
+list.Add("Ayşe");
+list.Add(2);
+list.Add(true);
+list.Add('A');
+
+System.Console.WriteLine(list[1]);
+
+foreach(var item in list){
+    System.Console.WriteLine(item);
+}
+
+List<int> sayilar = new List<int>(){1,2,5,7,8,0};
+list.AddRange(sayilar);
+
+list.Sort();
+
+System.Console.WriteLine(list.BinarySearch(8));
+
+list.Reverse();
+list.Clear();
+
+
