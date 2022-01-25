@@ -1,0 +1,83 @@
+using System;
+using System.Collections.Generic;
+
+List<int> sayiListesi = new List<int>();
+
+sayiListesi.Add(2);
+sayiListesi.Add(4);
+sayiListesi.Add(10);
+sayiListesi.Add(15);
+
+List<string> renkListesi = new List<string>();
+renkListesi.Add("Kırmızı");
+renkListesi.Add("Yeşil");
+renkListesi.Add("Mavi");
+
+System.Console.WriteLine(renkListesi.Count);
+System.Console.WriteLine(sayiListesi.Count);
+
+foreach (var item in sayiListesi)
+{
+    System.Console.WriteLine(item);
+}
+foreach(var item in renkListesi){
+    System.Console.WriteLine(item);
+}
+
+sayiListesi.ForEach(sayi=> System.Console.WriteLine(sayi));
+renkListesi.ForEach(renk=> System.Console.WriteLine(renk));
+
+if(sayiListesi.Contains(4)){
+    System.Console.WriteLine("4 liste içinde");
+}
+
+System.Console.WriteLine(renkListesi.BinarySearch("Kırmızı"));
+
+string[] hayvanlar = {"Kedi","Köpek","Kuş"};
+List<string> hayvanListesi = new List<string>(hayvanlar);
+hayvanListesi.Clear();
+
+List<Kullanicilar> kullaniciListesi = new List<Kullanicilar>();
+
+Kullanicilar kullanici1 = new Kullanicilar();
+kullanici1.isim = "Ahmet";
+kullanici1.soyisim = "Güler";
+kullanici1.yas = 15;
+
+Kullanicilar kullanici2 = new Kullanicilar();
+kullanici2.isim = "Metin";
+kullanici2.soyisim = "Gülmez";
+kullanici2.yas = 25;
+
+kullaniciListesi.Add(kullanici1);
+kullaniciListesi.Add(kullanici2);
+
+List<Kullanicilar> newList = new List<Kullanicilar>();
+
+newList.Add(new Kullanicilar(){
+    isim = "Deniz",
+    soyisim = "Arda",
+    yas = 24
+});
+
+foreach (var item in kullaniciListesi)
+{
+    System.Console.WriteLine("Kullanici Adi: {0}\nkullanici Soyadi:" +
+    "{1}\nKullanici Yasi: {2}",item.isim,item.soyisim,item.yas);
+
+}
+
+newList.Clear();
+
+public class Kullanicilar{
+
+    string _isim;
+    string _soyisim;
+    string _yas;
+    public string isim { get; set; }
+    public string soyisim { get; set; }
+    public int yas { get; set; }
+
+
+}
+
