@@ -1,0 +1,72 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+
+var ogrenci1 = new Ogrenci();
+ogrenci1.Name = "Berkay";
+ogrenci1.LastName = "Golcu";
+ogrenci1.ClassNo = 4;
+ogrenci1.StudentNo = 1234;
+
+var ogrenci2 = new Ogrenci("Zuleyha","Suzen",1235,4);
+
+var ogrenci3 = new Ogrenci("Ali Deniz","Eroglu",1236,1);
+
+ogrenci1.UpperClass();
+ogrenci2.LowerClass();
+ogrenci3.LowerClass();
+
+ogrenci1.StudentInfo();
+ogrenci2.StudentInfo();
+ogrenci3.StudentInfo();
+
+class Ogrenci{
+
+    private string _name;
+    private string _lastName;
+    private int _studentNo;
+    private int _classNo;
+
+    public string Name { get => _name; set => _name = value; }
+    public string LastName { get => _lastName; set => _lastName = value; }
+    public int StudentNo { get => _studentNo; set => _studentNo = value; }
+    public int ClassNo { get => _classNo; 
+    set { if(value<=1){
+        System.Console.WriteLine("Class number must be at least 1.");
+        _classNo = 1;
+    }
+    else{
+        _classNo = value;
+    };}}
+
+    public Ogrenci(string studentName, string studentLastName, int studentNo,int studentClass)
+    {
+        this.Name = studentName;
+        this.LastName = studentLastName;
+        this.StudentNo = studentNo;
+        this.ClassNo = studentClass;
+    }
+    public Ogrenci(){}
+
+    public void StudentInfo(){
+        System.Console.WriteLine("Student name:      {0}",this.Name);
+        System.Console.WriteLine("Student Last name: {0}",this.LastName);
+        System.Console.WriteLine("Student Number:    {0}",this.StudentNo);
+        System.Console.WriteLine("Student Class:     {0}",this.ClassNo);
+
+    }
+
+    public void UpperClass(){
+
+        this.ClassNo = this.ClassNo + 1;
+
+    }
+
+    public void LowerClass(){
+
+        this.ClassNo = this.ClassNo - 1;
+
+    }
+    
+ }
