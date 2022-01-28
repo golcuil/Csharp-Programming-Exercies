@@ -1,1 +1,311 @@
+namespace Odev1;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        int kullaniciGirdi = 1;
+
+        while (kullaniciGirdi != 0)
+        {
+            System.Console.WriteLine("Lütfen yapmak istediğiniz işlemi seçiniz.");
+            System.Console.WriteLine(" ");
+            System.Console.WriteLine("(1) Yeni Numara Kaydetmek");
+            System.Console.WriteLine("(2) Varolan Numarayı Silmek");
+            System.Console.WriteLine("(3) Varolan Numarayı Güncellemek");
+            System.Console.WriteLine("(4) Rehberi Listelemek");
+            System.Console.WriteLine("(5) Rehberde Arama Yapmak");
+            System.Console.WriteLine("(0) Çıkış...");
+
+            kullaniciGirdi = int.Parse(Console.ReadLine());
+            ContactManager contactManager = new ContactManager();
+
+
+            switch (kullaniciGirdi)
+            {
+                case 1:
+                    contactManager.AddContact();
+                    break;
+                case 2:
+                    contactManager.DeleteContact();
+                    break;
+                case 3:
+                    contactManager.UpdateContact();
+                    break;
+                case 4:
+                    contactManager.DisplayContact();
+                    break;
+                case 5:
+                    contactManager.SearchContact();
+                    break;
+
+                case 0:
+                    System.Console.WriteLine("Çıkış yapılıyor...");
+                    break;
+
+                default:
+                    System.Console.WriteLine("Hatali Giriş yaptiniz.");
+                    break;
+            }
+        }
+    }
+}
+
+using System;
+namespace Odev1
+{
+	public class Person
+	{
+		private string _name;
+		private string _lastName;
+		private long _phone;
+
+		public string Name { get => _name; set => _name = value; }
+		public string LastName { get => _lastName; set => _lastName = value; }
+		public long Phone { get => _phone; set => _phone = value; }
+
+		public Person()
+		{
+			this.Name = "";
+			this.LastName = "";
+			this.Phone = 0;
+		}
+
+		public Person(string Isim, string Soyisim, long Telefon)
+		{
+
+			this.Name = Isim;
+			this.LastName = Soyisim;
+			this.Phone = Telefon;
+		}
+	}
+
+}
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+namespace Odev1
+{
+	public class Contact
+	{
+        public static List<Person> contactList = new List<Person>();
+
+        static Contact()
+        {
+            
+            contactList.Add(new Person("Yasin", "Öztufan", 05323323232));
+            contactList.Add(new Person("Efe", "Yigit", 053255555555));
+            contactList.Add(new Person("Altug", "Can", 053356666666));
+            contactList.Add(new Person("Zuleyha", "Eroglu", 055566667777));
+            contactList.Add(new Person("Ali Deniz", "Süzen", 053183333333));
+            
+            
+        }
+    }
+}
+
+
+using System;
+namespace Odev1
+{
+	public class ContactManager:Contact
+	{
+
+      
+            
+		public void AddContact()
+        {
+			Console.Write("Lütfen isim giriniz: ");
+			string isim = Console.ReadLine();
+			Console.Write("Lütfen soyisim giriniz: ");
+			string soyisim = Console.ReadLine();
+			Console.Write("Lütfen telefon numarası giriniz: ");
+			long telefon = long.Parse(Console.ReadLine());
+
+            Console.WriteLine("İşlem yapılıyor...");
+            Contact.contactList.Add(new Person(isim, soyisim, telefon));
+
+			Console.WriteLine("{0} isimli kişi başarıyla eklendi...", isim);
+
+            
+		}
+
+		public void DeleteContact()
+        {
+            Console.WriteLine("Lütfen numarasını silmek istediğiniz kişinin adını ya da soyadını giriniz:");
+
+            Console.Write("İsim/Soyisim: ");
+			string nameOrSurname = Console.ReadLine().ToLower();
+			bool userExist = false;
+
+            for (int i = 0; i < Contact.contactList.Count; i++)
+            {
+				if(nameOrSurname == Contact.contactList[i].Name.ToLower() || nameOrSurname == Contact.contactList[i].LastName.ToLower())
+                {
+					userExist = true;
+
+                    if (userExist)
+                    {
+                        Console.WriteLine("{0} isimli kullanıcı silinmek üzere. Onaylıyor musunuz y/n");
+                        Console.Write("y/n");
+						string decision = Console.ReadLine();
+
+						if(decision == "y")
+                        {
+							Contact.contactList.RemoveAt(i);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Ana Menüye Dönüyorsunuz.");
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Aradığınız kriterlere uygun kişi bulunamadı.");
+                    Console.WriteLine("* Silmeyi sonlardırmak için: (1)");
+                    Console.WriteLine("* Yeniden denemek için: (2)");
+
+                    int decision = int.Parse(Console.ReadLine());
+
+                    if(decision == 1)
+                    {
+                        Console.WriteLine("Ana Menüye Dönüyorsunuz.");
+                        break;
+                    }
+                    if(decision == 2)
+                    {
+                        DeleteContact();
+                    }
+                }
+            }
+        }
+
+		public void UpdateContact()
+        {
+            Console.WriteLine("Lütfen numarasını güncellemek istediğiniz kişinin adını ya da soyadını giriniz:");
+
+            Console.Write("İsim/Soyisim: ");
+            string nameOrSurname = Console.ReadLine().ToLower();
+            bool userExist = false;
+
+            for (int i = 0; i < Contact.contactList.Count; i++)
+            {
+                if (nameOrSurname== Contact.contactList[i].Name.ToLower() || nameOrSurname == Contact.contactList[i].LastName.ToLower())
+                {
+                    userExist = true;
+
+                    if (userExist)
+                    {
+                        Console.WriteLine("{0} isimli kullanıcı güncellenecek. Onaylıyor musunuz y/n",Contact.contactList[i].Name);
+                        Console.Write("y/n: ");
+                        string decision = Console.ReadLine();
+
+                        if (decision == "y")
+                        {
+                            Console.Write("Yeni Numarayı Giriniz: ");
+                            long newNumber = long.Parse(Console.ReadLine());
+
+                            Contact.contactList[i].Phone = newNumber;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Ana Menüye Dönüyorsunuz.");
+                            break;
+                        }
+                    }
+                }
+
+            }
+            if(!userExist)
+             {
+                 Console.WriteLine("Aradığınız kriterlere uygun kişi bulunamadı.");
+                 Console.WriteLine("* Güncellemeyi sonlardırmak için: (1)");
+                 Console.WriteLine("* Yeniden denemek için: (2)");
+
+                 int decision = int.Parse(Console.ReadLine());
+
+                 if (decision == 1)
+                 {
+                      Console.WriteLine("Ana Menüye Dönüyorsunuz.");
+                 }
+                 if (decision == 2)
+                 {
+                      UpdateContact();
+                 }
+             }
+            
+        }
+		public void DisplayContact()
+        {
+            for (int i = 0; i < Contact.contactList.Count; i++)
+            {
+                Console.WriteLine("isim: " + Contact.contactList[i].Name);
+                Console.WriteLine("Soyisim: "+ Contact.contactList[i].LastName);
+                Console.WriteLine("Telefon No: "+ Contact.contactList[i].Phone);
+                Console.WriteLine("***********");
+                Console.WriteLine("Toplam {0} kişi listede.", Contact.contactList.Count);
+            }
+        }
+		public void SearchContact()
+        {
+            Console.WriteLine("İsim/Soyisim'e göre arama yapmak için:      (1)");
+            Console.WriteLine("Telefon Numarası'na göre arama yapmak için: (2)");
+
+            int decision = int.Parse(Console.ReadLine());
+
+            if(decision == 1)
+            {
+                Console.Write("İsim veya Soyisim Girin: ");
+                string nameOrLastName = Console.ReadLine().ToLower();
+                bool searched = false;
+
+                for (int i = 0; i < Contact.contactList.Count; i++)
+                {
+                    
+
+                    if(nameOrLastName == Contact.contactList[i].Name.ToLower() || nameOrLastName == Contact.contactList[i].LastName.ToLower())
+                    {
+                        Console.WriteLine("isim: " + Contact.contactList[i].Name);
+                        Console.WriteLine("soyisim: " + Contact.contactList[i].LastName);
+                        Console.WriteLine("telefon: " + Contact.contactList[i].Phone);
+
+                        searched = true;
+                    }
+
+                   
+
+                }
+
+                 if(!searched)
+                    {
+                        Console.WriteLine("Aradığınız kriterlere uygun biri bulunamadı.");
+                        Console.WriteLine("Tekrar Arama Yapmak: (1)");
+                        Console.WriteLine("Ana Menü:            (2)");
+
+                        int karar = int.Parse(Console.ReadLine());
+
+                        if (karar == 1)
+                        {
+                            SearchContact();
+                        }
+                        if (karar == 2)
+                        {
+                            Console.WriteLine("Ana menüye dönüyorsunuz.");
+                         
+                        }
+                    }
+            }
+        }
+
+
+
+
+	}
+}
+
+
 
