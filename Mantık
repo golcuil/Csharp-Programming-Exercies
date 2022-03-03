@@ -1,0 +1,72 @@
+Mantık
+
+Öncelikle bu konuyu seçmemdeki temel sebep sezgisel anlatmaya çok uygun bir konu olmasının yanı sıra yazılımda da ilgilendiğimiz "if - else"'in
+temellerinden olmasıdır.
+
+Mantık öncelikle bir önermeden başlar. Peki önerme nedir ?
+
+Önerme doğruluğu veya yanlışlığı ile ilgilenmediğimiz, kesin sonuçlar bildiren ifadelere denmektedir.
+
+Örneğin : Bir gün 24 saattir(doğru), 1 asal bir sayıdır(yanlış)
+
+Burada 2. örnek yanlış olmasına rağmen (en küçük asal sayı 2'dir) bu bir önermedir çünkü kesin bir hüküm bildirmektedir.
+
+Fakat "Yarın yağmur yağabilir" bir önerme değildir. Burada bir kesinlik söz konusu değildir.
+
+Peki önermelerde kesinlik var ise neden doğru yanlışlığı ile ilgilenmiyoruz sorusu oluşursa aslında cevabı ilgileniyoruz :)
+
+Önermeler doğruluk değerlerine göre 1 veya 0 değerlerini alır. Aslında bakarsak kesin bir hükmün cevabı da bellidir.
+
+İlk örneğimizi hatırlayalım. Bir gün 24 saattir. Bu kesin doğrudur. Bir gün 25 saat 23 saat olamayacağı için cevabı her zaman doğrudur ve burada
+bu önerme "1" değerini almaktadır. 
+
+İkinci örneğimizde ise "1 bir asal sayıdır" önermesi yanlıştır çünkü en küçük asal sayı 2'dir. Burada ise yanlış önermemiz "0" değerini almaktadır.
+Baktığımız zaman ise bu durum her zaman geçerlidir ve kesinlik bildirmektedir. 
+
+Önermenini "Değili" (Olumsuzu)
+
+Bir önermenin "değil"'ini aslında basit olarak önermeye değil ekleyerek okuduğumuz zaman anlayabiliriz.
+
+İlk örneğimize tekrar bakarsak : Bir gün 24 saat "değil"dir der isek bu hala bir önermedir fakat artık mantık değerinin 1 olması aksine
+artık "0"'dır çünkü yanlıştır.
+
+İkinci örneğimize bakarsak : 1 en küçük asal sayı "değil"dir dersek önermemiz artık 1 değerini alır çünkü artık doğru bir önermedir.
+
+
+Peki iki önermeyi birbirine bağlarsak ne olur ?
+
+Bir gün 24 saattir "ve" en küçük asal sayı 1'dir - dersek ne elde ederiz.
+
+burada aslında önemli olan aradaki bağlaçtır. Kodlama dünyasında da en çok karşılaştığımız "and", "or" yani "ve", "veya" bağlaçları.
+
+Bunu anlatmanın bence en basit yöntemi kim milyoner olmak ister yarışması olabilir.
+
+Çift joker cevabını hepimiz biliriz sanırım. Burada yarışmacıya joker hakkı olarak 2 tahmin yapması istenir.
+
+Yarışmacı cevap olarak "A" veya "B" der. Burada iki cevaptan birinin doğru olması olasılığında yarışmacı soruyu bilmiş sayılır.
+Yani 2 cevaptan birinin yanlış olması sonucu değiştirmez sonuç yine doğrudur.
+
+Fakat 4 şıklı soruda 2 seçenek bilmesi istendiğinde yarışmacı eğer cevap "A" ve "B" der ise, ikisinden birisinin yanlış çıkması dahilinde diğeri doğru olsa bile
+yanlış kabul edilecektir.
+
+Yani basit matematikle anlatacak olursak 1 ve 0 değerlerinden bahsetmiştik. Burada ve bağlacını çarpma, veya bağlacını toplama olarak düşünebiliriz
+
+1 ve 0 = 1 x 0 = 0
+1 veya 0 = 1 + 0 = 1
+
+yazılım dünyasına yönelik bir örnek verecek olursak:
+
+x = kullanıcıdan gelen sayı
+
+Eğer sayı 3'ten büyükse veya 0 ' ise = ahmet yaz
+
+Eğer sayı 3'ten büyükse ve 2'ile bölünebiliyorsa = mehmet yaz
+
+Birinci örnek için kullanıcı sayı olarak 5 dediğini örnek verelim. Burada 3'ten büyük olduğu cevap "Ahmet" olacaktır. Fakat sayı 0 olsa bile
+3'ten küçük olmasına rağmen VEYA 0 dediği için cevap yine "Ahmet" olacaktır.
+
+Fakat 2.örnekte sayının 5 olduğunu ele alalım. Burada ilk koşulu sağlasa bile 2.koşul sağlanmadığı için "Mehmet" yazmayacaktır. 
+
+Burada örneğin kullanıcı 6 yazarsa, hem 3'ten büyük hem 2 ile tam bölünebildiği için bu durumda "Mehmet" yazılacaktır.
+
+Teşekkür Ederim.
